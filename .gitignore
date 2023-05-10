@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/django,macos,windows,linux,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=django,macos,windows,linux,python
+# Created by https://www.toptal.com/developers/gitignore/api/django,python,macos,linux,windows,venv
+# Edit at https://www.toptal.com/developers/gitignore?templates=django,python,macos,linux,windows,venv
 
 ### Django ###
 *.log
@@ -311,6 +311,18 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
+### venv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+pip-selfcheck.json
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -337,4 +349,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/django,macos,windows,linux,python
+# End of https://www.toptal.com/developers/gitignore/api/django,python,macos,linux,windows,venv
