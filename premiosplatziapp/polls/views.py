@@ -4,13 +4,13 @@ from django.http import HttpResponse
 from .models import Question
 
 def index(request):             #Vinculamos nuestro view Index con el template index.html, para ver todas las preguntas
-    """[polls/views/index]
-    Args:
-        request ([HTTP]): [Request]
-    Returns:
-        [Render]: [Request, Url, Dict(Question.objects.all())]
     """
-    
+    La estructura es de la siguiente manera, el render necesita 3 cosas: 
+    (request, "ruta", "Dict con llave valor")
+    En el diccionario va nuestra variable para mostrar todas las preguntas, ese es el Context.
+
+    """
+
     latest_question_list = Question.objects.all()
     context = {'latest_question_list': latest_question_list}
     return render(request, "polls/index.html", context)
