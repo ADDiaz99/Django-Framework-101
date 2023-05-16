@@ -1,8 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def index(request):
-    return HttpResponse("Hi there! Welcome to the polls area - WIP")
+from .models import Question
+
+def index(request):             #Vinculamos nuestro view Index con el template index.html, para ver todas las preguntas
+    """[polls/views/index]
+    Args:
+        request ([HTTP]): [Request]
+    Returns:
+        [Render]: [Request, Url, Dict(Question.objects.all())]
+    """
+    
+    latest_question_list = Question.objects.all()
+    context = {'latest_question_list': latest_question_list}
+    return render(request, "polls/index.html", context)
 
 def detail(request, question_id):
     return HttpResponse(f"Estas viendo la pregunta numero {question_id}")
