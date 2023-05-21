@@ -13,7 +13,7 @@ class Question(models.Model):
         return self.question_text
     
     def was_published_recently(self):       #Hacemos otro metodo para checar si la pregunta ha sido publicada hace menos de un dia
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1) #le restamos al tiempo actual 1 dia y lo verificamos si es mayor al pubdate
+        return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1) #le restamos al tiempo actual 1 dia y lo verificamos si es mayor al pubdate
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE) #El on_delete nos permite borrar todas las respuestas si se borra la pregunta
