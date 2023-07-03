@@ -20,3 +20,11 @@ class QuestionIndexViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context["latest_question_list"], [])
+
+    def test_no_future_questions_are_displayed(self):
+        """If a future question is created in the DB, this question isn't shown until it's pubdate is equal to the present time"""
+        response = self.client.get(reverse("polls:index"))
+        time = timezone.now() + datetime.timedelta(days=30)
+        future_question = Question(question_text="Who is the best teacher?", pub_date=time)
+        self.assertNotIn(future_question, response.context["latest_question_list"])
+        
